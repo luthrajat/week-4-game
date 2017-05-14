@@ -60,6 +60,9 @@ var imageRef = ["assets/images/2088_roseab.png",
 var userTotal = 0;
 var randomNumberValue = 0; //getRandomInt(1,imageRef.length * 3);
 
+var win = 0;
+var lose = 0;
+
 function initGame() {
   var holder = $(".crystalHolder");
   var ccCount = $("#crystalCount option:selected").text();
@@ -82,9 +85,11 @@ function playGame(myNewSelection) {
     updateSpan("#myTotal", userTotal);
     if(randomNumberValue==userTotal) {
       updateScoreBoardOnScreen(randomNumberValue, userTotal, true);
+      updateSpan("win", "Wins: " + ++win);
       reset();
     } else if (userTotal>randomNumberValue) {
       updateScoreBoardOnScreen(randomNumberValue, userTotal, false);
+      updateSpan("lose", "losses: " + ++lose);
       reset();
     }
 }

@@ -85,11 +85,11 @@ function playGame(myNewSelection) {
     updateSpan("#myTotal", userTotal);
     if(randomNumberValue==userTotal) {
       updateScoreBoardOnScreen(randomNumberValue, userTotal, true);
-      updateSpan("win", "Wins: " + ++win);
+      updateSpan("#win", (++win));
       reset();
     } else if (userTotal>randomNumberValue) {
       updateScoreBoardOnScreen(randomNumberValue, userTotal, false);
-      updateSpan("lose", "losses: " + ++lose);
+      updateSpan("#lose", (++lose));
       reset();
     }
 }

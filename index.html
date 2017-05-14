@@ -64,12 +64,16 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <script src="assets/javascript/game.js" charset="utf-8"></script>
   <script type="text/javascript">
       $(document).ready(function() {
+        var ccSelectObj = $("#crystalCount");
         var minSelectObj = $("#minCategory");
         var maxSelectObj = $("#maxCategory");
         var min = 0;
         var max = 50;
         var maxMulti = 2;
         for(var index=min; index<=max; index++) {
+              ccSelectObj.append($("<option></option>")
+                     .attr("value",index)
+                     .text(index));
               minSelectObj.append($("<option></option>")
                      .attr("value",index)
                      .text(index));
@@ -77,8 +81,9 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                       .attr("value",index*maxMulti)
                       .text((max+1)+(index*maxMulti)));
         }
+        ccSelectObj.val(18);
         maxSelectObj.val(max*maxMulti);
-        initGame(minSelectObj.val(), maxSelectObj.val());
+        initGame();
       });
   </script>
 </head>
@@ -113,6 +118,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
              <h3>Options & Tally</h3>
            </div>
            <div>
+             Crystal Count:&nbsp;<select id="crystalCount" onchange="initGame();"></select><br/>
              Number Range:&nbsp;Min:&nbsp;<select id="minCategory" onchange="reset();"></select>
              &nbsp;Max:&nbsp;<select id="maxCategory" onchange="reset();"></select>
              <br/><br/>

@@ -62,7 +62,9 @@ var randomNumberValue = 0; //getRandomInt(1,imageRef.length * 3);
 
 function initGame() {
   var holder = $(".crystalHolder");
-  for(var i=0;i<5;i++) {
+  var ccCount = $("#crystalCount option:selected").text();
+  holder.empty();
+  for(var i=0;i<ccCount;i++) {
     var images = $("<img>");
     images.attr("id", "img"+i);
     images.animate({ width: "100px" });
@@ -121,11 +123,12 @@ function reset() {
   userTotal = 0;
   var minValue = $("#minCategory option:selected").text();
   var maxValue = $("#maxCategory option:selected").text();
+  var ccCount = $("#crystalCount option:selected").text();
   randomNumberValue = getRandomInt(minValue, maxValue);
   updateSpan("#randomNumberSpan", randomNumberValue);
   updateSpan("#myTotal", userTotal);
   clearUserInputs();
-  for(var i=0;i<imageRef.length;i++) {
+  for(var i=0;i<ccCount;i++) {
     var images = $("#img"+i);
     images.attr("src", imageRef[getRandomInt(1,imageRef.length-1)]);
     images.attr("randomNumber", getRandomInt(0,11));

@@ -67,7 +67,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         var ccSelectObj = $("#crystalCount");
         var minSelectObj = $("#minCategory");
         var maxSelectObj = $("#maxCategory");
-        var min = 0;
+        var min = 1;
         var max = 50;
         var maxMulti = 2;
         for(var index=min; index<=max; index++) {
@@ -119,8 +119,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
              <h3>Options & Tally</h3>
            </div>
            <div>
-             Crystal Count:&nbsp;<select id="crystalCount" onchange="initGame();"></select><br/>
-             Number Range:&nbsp;Min:&nbsp;<select id="minCategory" onchange="reset();"></select>
+             Crystal Count to Display:&nbsp;<select id="crystalCount" onchange="initGame();"></select><br/>
+             Random Number Range:<br/>&nbsp;&nbsp;Min:&nbsp;<select id="minCategory" onchange="reset();"></select>
              &nbsp;Max:&nbsp;<select id="maxCategory" onchange="reset();"></select>
              <br/><br/>
              Press to Replay:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id = "reset" type="button" name="button" onclick="reset();">Play Again</button>
